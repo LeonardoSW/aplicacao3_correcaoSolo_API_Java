@@ -103,6 +103,7 @@ namespace correcao.solo
             this.AbrirTelaCorrecaoFosforo = new System.Windows.Forms.Button();
             this.AplicarValoresCorrecaoPotassio = new System.Windows.Forms.Button();
             this.AplicarValoresCalcioMagnésio = new System.Windows.Forms.Button();
+            this.testarConexão = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -288,6 +289,7 @@ namespace correcao.solo
             this.cMolCalcio.Name = "cMolCalcio";
             this.cMolCalcio.Size = new System.Drawing.Size(94, 20);
             this.cMolCalcio.TabIndex = 37;
+            this.cMolCalcio.TextChanged += new System.EventHandler(this.cMolCalcio_TextChanged);
             // 
             // cMolMagnesio
             // 
@@ -295,6 +297,7 @@ namespace correcao.solo
             this.cMolMagnesio.Name = "cMolMagnesio";
             this.cMolMagnesio.Size = new System.Drawing.Size(84, 20);
             this.cMolMagnesio.TabIndex = 38;
+            this.cMolMagnesio.TextChanged += new System.EventHandler(this.cMolMagnesio_TextChanged);
             // 
             // textBox6
             // 
@@ -412,6 +415,7 @@ namespace correcao.solo
             this.sCmol.Name = "sCmol";
             this.sCmol.Size = new System.Drawing.Size(94, 20);
             this.sCmol.TabIndex = 56;
+            this.sCmol.TextChanged += new System.EventHandler(this.sCmol_TextChanged);
             // 
             // label16
             // 
@@ -787,11 +791,22 @@ namespace correcao.solo
             this.AplicarValoresCalcioMagnésio.UseVisualStyleBackColor = true;
             this.AplicarValoresCalcioMagnésio.Click += new System.EventHandler(this.AplicarValoresCalcioMagnésio_Click);
             // 
+            // testarConexão
+            // 
+            this.testarConexão.Location = new System.Drawing.Point(12, 452);
+            this.testarConexão.Name = "testarConexão";
+            this.testarConexão.Size = new System.Drawing.Size(138, 23);
+            this.testarConexão.TabIndex = 99;
+            this.testarConexão.Text = "Testar Conexão com API";
+            this.testarConexão.UseVisualStyleBackColor = true;
+            this.testarConexão.Click += new System.EventHandler(this.testarConexão_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 487);
+            this.Controls.Add(this.testarConexão);
             this.Controls.Add(this.AplicarValoresCalcioMagnésio);
             this.Controls.Add(this.AplicarValoresCorrecaoPotassio);
             this.Controls.Add(this.AbrirTelaCorrecaoFosforo);
@@ -950,6 +965,7 @@ namespace correcao.solo
         private System.Windows.Forms.Button AbrirTelaCorrecaoFosforo;
         private System.Windows.Forms.Button AplicarValoresCorrecaoPotassio;
         private System.Windows.Forms.Button AplicarValoresCalcioMagnésio;
+        private System.Windows.Forms.Button testarConexão;
     }
 }
 

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RestSharp;
 
 
 namespace correcao.solo
@@ -40,6 +41,29 @@ namespace correcao.solo
             cMolMagnesio.Text = telaClienteSolo.texturaSolo == 1 ? "1,5" : telaClienteSolo.texturaSolo == 2 ? "1,0" : "";
             textBox27.Text = telaClienteSolo.texturaSolo == 1 ? "9,0" : telaClienteSolo.texturaSolo == 2 ? "6,0" : "";
             textBox6.Text = "0";
+
+        }
+
+        private void GetValorScmol()
+        {
+            try { 
+                var client = new RestClient("http://localhost:8080/calcula/calculascmol");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Content-Type", "application/json");
+                var body = "["+"\""+calcioNoSolo.Text+"\","+"\"" + potassioNoSolo.Text+ "\",\"" + magnesioNoSolo.Text + "\"]";
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+                IRestResponse response = client.Execute(request);
+
+                if(response.StatusCode != System.Net.HttpStatusCode.OK)
+                    MessageBox.Show("Não foi possivel estabelecer conexão com a API de calculos");
+                
+                sCmol.Text = response.Content.ToString();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Não foi possivel estabelecer conexão com a API de calculos");
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -53,41 +77,27 @@ namespace correcao.solo
 
         private void cMolPotassio_TextChanged(object sender, EventArgs e)
         {
-
+            GetValorScmol();
         }
 
         private void potassioNoSolo_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(potassioNoSolo.Text) && potassioNoSolo.Text != "0") { 
-                GetValorCmol();
-                GetCtcCmol();
-            }
+            GetValorScmol();
         }
 
         private void calcioNoSolo_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(calcioNoSolo.Text) && calcioNoSolo.Text != "0")
-            {
-                GetValorCmol();
-                GetCtcCmol();
-                GetVPercentualAtual();
-            }
+            GetValorScmol();
         }
 
         private void magnesioNoSolo_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(magnesioNoSolo.Text) && magnesioNoSolo.Text != "0")
-            {
-                GetValorCmol();
-                GetCtcCmol();
-                GetVPercentualAtual();
-            }
+            GetValorScmol();
         }
 
         private void HmaisAL_TextChanged(object sender, EventArgs e)
         {
-            GetCtcCmol();
-            GetVPercentualAtual();
+
         }
 
         private void GetValorCmol()
@@ -139,6 +149,32 @@ namespace correcao.solo
         {
             telaCorrecaoCalcioMagnesio.ShowDialog();
             textBox18.Text = telaCorrecaoCalcioMagnesio.qtdAplicar_.ToString();
+        }
+
+        private void testarConexão_Click(object sender, EventArgs e)
+        {
+            var client = new RestClient("http://localhost:8080/calcula/testeconexao");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            IRestResponse response = client.Execute(request);
+
+            _ = response.StatusCode == System.Net.HttpStatusCode.OK ? MessageBox.Show(response.Content) : MessageBox.Show("Falha ao conectar.");
+
+        }
+
+        private void sCmol_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cMolCalcio_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cMolMagnesio_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
