@@ -1,0 +1,16 @@
+package com.example.demo.calculos;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+@RequiredArgsConstructor
+public class NutrienteAdicional {
+
+    @Getter
+    private final double teorNutriente;
+
+    @Getter @Setter
+    private double correcaoAdicional;
+    
+}

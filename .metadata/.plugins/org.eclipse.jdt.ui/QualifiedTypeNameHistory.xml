@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonAlias"/>
+    <fullyQualifiedTypeName name="org.springframework.http.converter.json.JsonbHttpMessageConverter"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.method.annotation.JsonViewResponseBodyAdvice"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonAnySetter"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.jackson.JsonObjectSerializer"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseStatus"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="com.example.demo.calculos.CalculaScmol"/>
+    <fullyQualifiedTypeName name="ch.qos.logback.core.pattern.parser.Parser"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,15 @@
+package com.example.demo.calculos;
+
+public class CalculaScmol {
+
+	public String CalculoScmol(String potassio, String calcio, String magnesio) {
+		
+		double qtdpotassio = Double.parseDouble(potassio); 
+		double qtdcalcio = Double.parseDouble(calcio);
+		double qtdmagnesio = Double.parseDouble(magnesio);
+		
+		return  Double.toString(qtdcalcio+qtdmagnesio+qtdpotassio);
+		
+	}
+	
+}
